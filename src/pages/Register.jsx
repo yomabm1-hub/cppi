@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
 import toast from 'react-hot-toast'
-import { Mail, Phone, Lock, User, Gift } from 'lucide-react'
+import { Mail, Phone, Lock, User, Gift, Eye, EyeOff } from 'lucide-react'
 
 export default function Register() {
   const [formData, setFormData] = useState({
@@ -17,6 +17,8 @@ export default function Register() {
   const [referralValid, setReferralValid] = useState(null)
   const [acceptedTerms, setAcceptedTerms] = useState(false)
   const [activeTab, setActiveTab] = useState('phone')
+  const [showPassword, setShowPassword] = useState(false)
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false)
   const { register } = useAuth()
   const navigate = useNavigate()
   const [searchParams] = useSearchParams()
@@ -215,13 +217,21 @@ export default function Register() {
                 <input
                   id="password"
                   name="password"
-                  type="password"
+                  type={showPassword ? 'text' : 'password'}
                   required
                   value={formData.password}
                   onChange={handleChange}
-                  className="input-field pl-10 bg-slate-950/60 border-slate-700 text-slate-100 placeholder:text-slate-500"
+                  className="input-field pl-10 pr-12 bg-slate-950/60 border-slate-700 text-slate-100 placeholder:text-slate-500"
                   placeholder="Enter your password (min 6 characters)"
                 />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword((prev) => !prev)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-100"
+                  aria-label={showPassword ? 'Hide password' : 'Show password'}
+                >
+                  {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
+                </button>
               </div>
             </div>
 
@@ -237,13 +247,21 @@ export default function Register() {
                 <input
                   id="confirmPassword"
                   name="confirmPassword"
-                  type="password"
+                  type={showConfirmPassword ? 'text' : 'password'}
                   required
                   value={formData.confirmPassword}
                   onChange={handleChange}
-                  className="input-field pl-10 bg-slate-950/60 border-slate-700 text-slate-100 placeholder:text-slate-500"
+                  className="input-field pl-10 pr-12 bg-slate-950/60 border-slate-700 text-slate-100 placeholder:text-slate-500"
                   placeholder="Confirm your password"
                 />
+                <button
+                  type="button"
+                  onClick={() => setShowConfirmPassword((prev) => !prev)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-100"
+                  aria-label={showConfirmPassword ? 'Hide confirm password' : 'Show confirm password'}
+                >
+                  {showConfirmPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
+                </button>
               </div>
             </div>
 

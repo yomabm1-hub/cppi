@@ -218,18 +218,21 @@ function InstallBanner() {
   }
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 max-w-sm rounded-2xl border border-white/20 bg-slate-900/90 p-4 text-white shadow-2xl backdrop-blur-md">
+    <div className="fixed bottom-6 right-6 z-50 max-w-sm rounded-2xl border border-emerald-500/40 bg-slate-950/95 p-4 text-slate-50 shadow-2xl backdrop-blur-md">
       <div className="flex items-start justify-between gap-4">
         <div>
-          <p className="text-sm font-semibold uppercase tracking-wide text-primary-200">CP-Investment App</p>
-          <h3 className="mt-1 text-lg font-bold">Install for one-tap access</h3>
-          <p className="mt-1 text-xs text-white/70">
-            Add CP-Investment to your home screen for a native experience with offline-ready dashboards.
+          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-emerald-300">
+            CP-Investment
+          </p>
+          <h3 className="mt-1 text-lg font-bold">Install your dashboard app</h3>
+          <p className="mt-1 text-xs text-slate-400">
+            Add CP‑Investment to your home screen for faster access to balances, VIP levels, and
+            withdrawals.
           </p>
         </div>
         <button
           onClick={() => setDismissed(true)}
-          className="rounded-full bg-white/10 p-1 text-white/60 transition hover:bg-white/20 hover:text-white"
+          className="rounded-full bg-slate-900/80 p-1 text-slate-400 transition hover:bg-slate-800 hover:text-slate-50 border border-slate-700"
           aria-label="Dismiss install banner"
         >
           ✕
@@ -240,38 +243,57 @@ function InstallBanner() {
         <div className="mt-4 flex flex-col gap-2 sm:flex-row">
           <button
             onClick={handleInstallClick}
-            className="w-full rounded-xl bg-primary-500 px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-primary-500/30 transition hover:bg-primary-400"
+            className="w-full rounded-xl bg-emerald-500 px-4 py-2 text-sm font-semibold text-slate-950 shadow-lg shadow-emerald-500/30 transition hover:bg-emerald-400"
           >
-            Install App
+            Install app
           </button>
           <button
             onClick={() => setShowGuide(true)}
-            className="w-full rounded-xl border border-white/20 px-4 py-2 text-sm font-semibold text-white/80 transition hover:bg-white/10"
+            className="w-full rounded-xl border border-slate-700 px-4 py-2 text-sm font-semibold text-slate-200 transition hover:bg-slate-900/80"
           >
             How it works
           </button>
         </div>
       ) : (
-        <div className="mt-4 space-y-2 rounded-xl border border-white/10 bg-white/5 p-3 text-xs text-white/80">
+        <div className="mt-4 space-y-2 rounded-xl border border-slate-700 bg-slate-900/80 p-3 text-xs text-slate-200">
           {isIOS ? (
             <>
-              <p className="font-semibold text-white">Install on iPhone & iPad:</p>
+              <p className="font-semibold text-slate-50">Install on iPhone & iPad:</p>
               <ol className="list-decimal space-y-1 pl-5">
-                <li>Tap the Share button <span className="text-white/60">（square with arrow) in Safari</span></li>
-                <li>Select <span className="font-semibold text-white">“Add to Home Screen”</span></li>
-                <li>Confirm the CP-Investment name and tap <span className="font-semibold text-white">“Add”</span></li>
+                <li>
+                  Tap the Share button{' '}
+                  <span className="text-slate-400">(square with arrow) in Safari</span>
+                </li>
+                <li>
+                  Select{' '}
+                  <span className="font-semibold text-slate-50">&ldquo;Add to Home Screen&rdquo;</span>
+                </li>
+                <li>
+                  Confirm the CP‑Investment name and tap{' '}
+                  <span className="font-semibold text-slate-50">&ldquo;Add&rdquo;</span>
+                </li>
               </ol>
-              <p className="text-white/70">CP-Investment will appear on your home screen like a native app.</p>
+              <p className="text-slate-400">
+                CP‑Investment will appear on your home screen like a native app.
+              </p>
             </>
           ) : (
             <>
-              <p className="font-semibold text-white">Manual install:</p>
+              <p className="font-semibold text-slate-50">Manual install:</p>
               <ol className="list-decimal space-y-1 pl-5">
                 <li>Open your browser menu (⋮ or ☰)</li>
-                <li>Choose <span className="font-semibold text-white">“Install app”</span> or <span className="font-semibold text-white">“Add to Home screen”</span></li>
+                <li>
+                  Choose{' '}
+                  <span className="font-semibold text-slate-50">&ldquo;Install app&rdquo;</span> or{' '}
+                  <span className="font-semibold text-slate-50">
+                    &ldquo;Add to Home screen&rdquo;
+                  </span>
+                </li>
                 <li>Confirm the CP-Investment prompt</li>
               </ol>
-              <p className="text-white/70">After installation, CP-Investment launches in full-screen mode.</p>
+              <p className="text-slate-400">
+                After installation, CP‑Investment launches in full-screen mode.
+              </p>
             </>
           )}
         </div>
